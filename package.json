@@ -1,0 +1,16 @@
+{
+  "name": "udemy-graphql",
+  "version": "1.0.0",
+  "description": "Udemy Course GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.6.12",
+    "graphql": "^14.0.2"
+  }
+}
