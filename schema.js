@@ -1,11 +1,11 @@
 const graphql = require('graphql');
 const axios = require('axios');
-const types = require('./customTypes')
+const types = require('./types');
 
 const {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLSchema
+  GraphQLSchema,
 } = graphql;
 
 const RootQuery = new GraphQLObjectType({
@@ -20,6 +20,18 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve: (parentValue, args) => {
         return axios.get(`http://localhost:3000/users/${args.id}`)
+        .then(resp => resp.data);
+      }
+    },
+    company: {
+      type: types.Company,
+      args: {
+        id: { type: GraphQLString },
+        name: { type: GraphQLString },
+        description: { type: GraphQLString },
+      },
+      resolve: (parentValue, args) => {
+        return axios.get(`http://localhost:3000/companies/${args.id}`)
         .then(resp => resp.data);
       }
     }
