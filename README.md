@@ -2,4 +2,4 @@
 
 ## Circular dependencies
 
-If fields object create circular dependencies one must define them as functions
+If fields objects create circular dependencies one must define them as functions
