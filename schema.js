@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const ramda = require('ramda');
+const axios = require('axios');
 
 const {
   GraphQLInt,
@@ -7,21 +7,6 @@ const {
   GraphQLString,
   GraphQLSchema
 } = graphql;
-
-const users = [
-  {
-    id: '1',
-    firstName: 'Sally',
-    lastName: 'McSalad',
-    age: 25
-  },
-  {
-    id: '2',
-    firstName: 'Sam',
-    lastName: 'McSalad',
-    age: 27
-  }, 
-]
 
 const UserType = new GraphQLObjectType({
   name: 'User',
@@ -52,7 +37,8 @@ const RootQuery = new GraphQLObjectType({
         }
       },
       resolve: (parentValue, args) => {
-        return users.find((user) => args.id === user.id);
+        return axios.get(`http://localhost:3000/users/${args.id}`)
+        .then(resp => resp.data);
       }
     }
   }
