@@ -1,16 +1,31 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": "0",
       "firstName": "Sally",
       "lastName": "McSalad",
-      "age": 25
+      "age": 25,
+      "companyId": "1"
     },
     {
-      "id": "2",
+      "id": "1",
       "firstName": "Sam",
       "lastName": "McSalad",
-      "age": 27
+      "age": 27,
+      "companyId": "0"
+    }
+  ],
+
+  "companies": [
+    {
+      "id": "0",
+      "name": "uHu",
+      "description": "Software Development"
+    },
+    {
+      "id": "1",
+      "name": "ChemTrailers",
+      "description": "Chemicals"
     }
   ]
 }
